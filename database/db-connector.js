@@ -7,7 +7,7 @@ var mysql = require('mysql')
 var pool = mysql.createPool({
     connectionLimit : 10,
     host            : 'localhost',
-    user            : 'Jon',
+    user            : 'oracle',
     password        : 'GroovyDB!3',
     database        : 'oracledb'
 })
