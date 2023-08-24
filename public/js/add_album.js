@@ -1,8 +1,3 @@
-// Citation for the following code:
-// Date: 08/07/2023
-// Copied From
-// OSU nodejs-starter-app Github. Modified to run with our database
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main
 
 const genreDropdown = document.getElementById("input-genre");
 
