@@ -1,7 +1,3 @@
--- GROUP 15
--- Jonathan Hirsch and Stephanie Conner
-
--- Query syntax from: https://canvas.oregonstate.edu/courses/1922991/assignments/9287073?module_item_id=23329629
 
 -- Add a Song
 INSERT INTO songs (songName, albumID, artistID, streamCount)
