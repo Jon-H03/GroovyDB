@@ -6,10 +6,10 @@ var mysql = require('mysql')
 // Create a 'connection pool' using the provided credentials
 var pool = mysql.createPool({
     connectionLimit : 10,
-    host            : '*',
-    user            : '*',
-    password        : '*',
-    database        : '*'
+    host            : 'localhost',
+    user            : 'Jon',
+    password        : 'GroovyDB!3',
+    database        : 'oracledb'
 })
 
 // Export it for use in our application
