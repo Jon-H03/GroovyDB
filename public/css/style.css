@@ -1,0 +1,130 @@
+/*
+# Citation for the following function:
+# Date: 12/02/2022
+# Based on:
+# Source URL: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+*/
+
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,900;1,100&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,900;1,100&family=Noto+Sans&family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #abd5ee;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+
+table {
+    width: 80%;
+    
+    border: 2px solid #ddd;
+}
+  
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    background-color: #f2f2f2;
+}
+  
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+}
+
+input {
+  font-family: 'Noto Sans', sans-serif;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 30%;
+}
+
+select {
+    font-family: 'Noto Sans', sans-serif;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+}
+
+button {
+  font-family: 'Noto Sans', sans-serif;
+  padding: 8px 12px;
+  margin-top: 1%;
+  width: 10%;
+  background-color: #a1a1a1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+    background-color: #727171; 
+}
+
+textarea {
+    font-family: 'Noto Sans', sans-serif;
+    width: 45%;
+    height: 4em;
+}
+
+
+/* Navbar Styling */
+.nav nav {
+    background-color: #333;
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: left; 
+}
+
+.nav li {
+    margin: 0 1%; 
+    
+}
+
+ 
+.nav a {
+    text-decoration: none;
+    color: black;
+    padding: 1% 1%;
+}
+
+.nav a:hover {
+    color: #a1a1a1;
+  }
+
+
+.deleteBtn {
+    font-family: 'Noto Sans', sans-serif;
+    margin-top: 0;
+    width: 100%;
+    background-color: #a1a1a1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteCol {
+    width: 1em;
+}

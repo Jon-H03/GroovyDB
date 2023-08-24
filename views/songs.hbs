@@ -1,0 +1,102 @@
+<!--Citation for the following code:
+// Date: 08/02/2023
+// Copied from
+// OSU nodejs-starter-app Github. Modified to run with our database
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars) 
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Songs</title>
+    <link id="stylesheet" href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Songs</h1>
+    <p>Access to current songs.</p>
+    <table id="song-table">
+      <thead>
+        <tr>
+          <th>songID</th>
+          <th>Song Title</th>
+          <th>Album</th>
+          <th>Artist</th>
+          <th># of streams</th>
+          <th class="deleteCol">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {{#each data}}
+          <tr>
+              <td>{{this.songID}}</td>
+              <td>{{this.songName}}</td>
+              <td>{{this.albumName}}</td>
+              <td>{{this.artistName}}</td>
+              <td>{{this.streamCount}}</td>
+              <td><button class="deleteBtn" onclick="deleteSong({{this.songID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    <script src="./js/delete_song.js"></script>
+
+        
+      </table>
+      <div id="addSong">
+        <h2>Add Song</h2>
+          <form id="add-song-form-ajax">
+              <label for="input-songName">Song Name:</label>
+              <input type="text" name="input-songName" id="input-songName" required>     
+
+              <label for="input-albumID">Album:</label>
+              <select name="input-albumID" id="input-albumID" required>
+                <option value="">Select an Album</option>
+                {{#each albums}}
+                <option value="{{this.albumID}}">{{this.albumName}}</option>
+                {{/each}}
+              </select>     
+
+              <label for="input-artistID">Artist:</label>
+              <select name="input-artistID" id="input-artistID" required>
+                <option value="">Select an Artist</option>
+                {{#each artists}}
+                <option value="{{this.artistID}}">{{this.artistName}}</option>
+                {{/each}}
+              </select>     
+
+              <label for="input-streamCount">Stream Count:</label>
+              <input type="number" name="input-streamCount" id="input-streamCount">     
+
+              <button type="submit">Submit</button>
+          </form>
+        <script src="./js/add_song.js"></script>
+      </div>
+      
+      
+      <div id="editSong">
+        <h2>Update Song</h2>
+        <p>Select a song name and update its stream count.</p>
+        <form id="update-song-form-ajax">
+          <label for="editSongName">Song Name: </label>
+          <select name="editSongName" id="songSelect">
+            <option value="test">Select a Song's Title</option>
+            {{#each data}}
+            <option value="{{this.songID}}">{{this.songName}}</option>
+            {{/each}}
+          </select>
+        
+          <label for="editStreamCount">Stream Count:</label>
+          <input type="number" id="editStreamCount" name="editStreamCount">
+          <button type="submit">Submit</button>
+        </form>
+        <script src="./js/update_song.js"></script>
+      </div>
+      </div>
+    
+  </div>
+</body>
+</html>

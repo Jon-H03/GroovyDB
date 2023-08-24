@@ -1,0 +1,92 @@
+<!-- 
+// Citation for the following code:
+// Date: 08/13/2023
+// Adapted from OSU nodejs-starter-app Github. Modified to run with our database
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albums</title>
+    <link id="stylesheet" href="/css/style.css" rel="stylesheet" type="text/css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Albums</h1>
+    <p>Access the current albums.</p>
+    <table id="album-table">
+            <thead>
+        <tr>
+          <th>AlbumID</th>
+          <th>Album</th>
+          <th>Genre</th>
+          <th>Year</th>
+          <th class="deleteCol">Delete</th>
+          </tr>
+          </thead>
+        <tbody>
+          {{#each data}}
+          <tr>
+              <td>{{this.albumID}}</td>
+              <td>{{this.albumName}}</td>
+              <td>{{this.genreName}}</td>
+              <td>{{this.year}}</td>
+              <td><button class="deleteBtn" onclick="deleteAlbum({{this.albumID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <script src="./js/delete_album.js"></script>
+
+
+<div id="addAlbum">
+<h2>Add Album</h2>
+<form id="add-album-form-ajax">
+
+    <label for="input-albumName">Album Name:</label>
+    <input type="text" id="input-albumName" name="input-albumName" required>
+    
+    <label for="input-genre">Genre:</label>
+    <select id="input-genre" name="input-genre" required>
+    </select>
+    
+    <label for="input-year">Year:</label>
+    <input type="number" id="input-year" name="input-year" required>
+    
+    <button type="submit">Submit</button>
+</form>
+<script src="./js/add_album.js"></script>
+</div>
+
+
+
+<script src="./js/update_album.js"></script>      
+
+    <div id="editAlbum">
+      <h2>Edit Album</h2>
+        <form id="put-album-form-ajax">
+
+          <label for="editAlbum">Album:</label>
+          <select id="input-album" name="input-album" required>
+          </select>
+
+          <label for="editAlbumName">Album Name:</label>
+          <input type="text" id="editAlbumName" name="editAlbumName" required>
+
+          <label for="editGenreID">Genre:</label>
+              <select id="input-genreEdit" name="input-genreEdit" required>
+              </select>
+
+          <label for="editYear">Year:</label>
+          <input type="number" id="editYear" name="editYear" required>
+
+          <button type="submit">Submit</button>
+        </form>
+ 
+      </div>
+
+</body>
+</html>

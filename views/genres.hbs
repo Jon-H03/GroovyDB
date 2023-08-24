@@ -1,0 +1,77 @@
+<!-- 
+// Citation for the following code:
+// Date: 08/13/2023
+// Adapted from OSU nodejs-starter-app Github. Modified to run with our database
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genres</title>
+    <link id="stylesheet" href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Genres</h1>
+    <p>Access to current genres.</p>
+    <table id="genre-table">
+      <thead>
+        <tr>
+          <th>Genre ID</th>
+          <th>Genre Name</th>
+          <th>Description</th>
+          <th class="deleteCol">Delete</th>
+        </tr>
+      </thead>
+    {{!-- Body section --}}
+      <tbody>
+
+          {{#each data}}
+          <tr>
+              <td>{{this.genreID}}</td>
+              <td>{{this.genreName}}</td>
+              <td>{{this.description}}</td>
+              <td><button class="deleteBtn" onclick="deleteGenre({{this.genreID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    <script src="./js/delete_genre.js"></script>
+
+    <div id="addGenre">
+      <h2>Add Genre</h2>
+        <form id="add-genre-form-ajax">
+          <label for="input-genreName">Genre Name:</label>
+          <input type="text" id="input-genreName" name="genreName" required>
+          <label for="input-description">Description:</label>
+          <textarea id="input-description" name="description" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      <script src="./js/add_genre.js"></script>
+    </div>
+
+      
+    <div id="editGenre">
+        <h2>Update Genre's Description</h2>
+        <p>Select a genre and update its description.</p>
+        <form id="update-genre-form-ajax">
+          <label for="editGenreName">Genre Name: </label>
+          <select name="editGenreName" id="genreSelect">
+            <option value="test">Select a Genre's Name</option>
+            {{#each data}}
+            <option value="{{this.genreID}}">{{this.genreName}}</option>
+            {{/each}}
+          </select>
+  
+          <label for="editDescription">Description:</label>
+          <textarea id="editDescription" name="editDescription" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <script src="./js/update_genre.js"></script>
+    </div>
+        
+</body>
+</html>

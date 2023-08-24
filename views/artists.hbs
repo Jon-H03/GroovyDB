@@ -1,0 +1,75 @@
+<!-- 
+// Citation for the following code:
+// Date: 08/13/2023
+// Adapted from OSU nodejs-starter-app Github. Modified to run with our database
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+    <link id="stylesheet" href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Artists</h1>
+    <p>Access the current artists.</p>
+    <table id="artist-table">
+      <thead>
+        <tr>
+          <th>ArtistID</th>
+          <th>Artist</th>
+          <th class="deleteCol">Delete</th>
+          </tr>
+          </thead>
+
+      <tbody>
+          {{#each data}}
+          <tr>
+              <td>{{this.artistID}}</td>
+              <td>{{this.artistName}}</td>
+              <td><button class="deleteBtn" onclick="deleteArtist({{this.artistID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+    </tbody>
+    </table>
+    <script src="./js/delete_artist.js"></script>
+
+
+    <div id="addArtist">
+        <h2>Add Artist</h2>
+        <form id="add-artist-form-ajax">
+          
+          <label for="input-artistName">Artist Name:</label>
+          <input type="text" id="input-artistName" name="artistName" required>
+
+          <button type="submit">Submit</button>
+        </form>
+        <script src="./js/add_artist.js"></script>
+      </div>
+      
+
+
+      <div id="editArtist">
+        <h2>Edit Artist</h2>
+        <form id="update-artist-form-ajax">
+          <label for="editArtistName">Artist Name: </label>
+          <select name="editArtistName" id="artistSelect">
+          <option value="test">Select a Artist's Name</option>
+            {{#each data}}
+            <option value="{{this.artistID}}">{{this.artistName}}</option>
+            {{/each}}
+            </select>
+
+          <label for="editArtistName">Changed Name: </label>
+          <input type="text" id="editArtistName" name="editArtistName" required>
+          <button type="submit">Submit</button>
+        </form>
+        <script src="./js/update_artist.js"></script>
+      </div>
+      
+</body>
+</html>

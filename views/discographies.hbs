@@ -1,0 +1,66 @@
+<!-- 
+// Citation for the following code:
+// Date: 08/13/2023
+// Adapted from OSU nodejs-starter-app Github. Modified to run with our database
+// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/tree/main/Step%203%20-%20Integrating%20a%20Templating%20Engine%20(Handlebars)
+!-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discographies</title>
+    <link id="stylesheet" href="/css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+    
+    <h1>Discographies</h1>
+    <p>Access to current discographies.</p>
+    <table id="discography-table">
+      <thead>
+        <tr>
+          <th>Artist Name</th>
+          <th>Album Name</th>
+          <th class="deleteCol">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each discographies}}
+        <tr>
+            <td>{{this.artistName}}</td>
+            <td>{{this.albumName}}</td>
+            <td><button class="deleteBtn" onclick="deleteDiscography({{this.artistID}}, {{this.albumID}})">Delete</button></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <script src="./js/delete_discography.js"></script>
+
+    <div id="addDiscography">
+    <h2>Add an Album to an Artist's Discography</h2>
+      <form id="add-discography-form-ajax">
+          <label for="input-artistID">Artist:</label>
+          <select name="input-artistID" id="input-artistID" required>
+              <option value="">Select an Artist</option>
+              {{#each artists}}
+              <option value="{{this.artistID}}">{{this.artistName}}</option>
+              {{/each}}
+          </select>
+
+          <label for="input-albumID">Album:</label>
+          <select name="input-albumID" id="input-albumID">
+              <option value="">Select an Album</option>
+              {{#each albums}}
+              <option value="{{this.albumID}}">{{this.albumName}}</option>
+              {{/each}}
+          </select>   
+          <button type="submit">Submit</button>
+      </form>
+      <script src="./js/add_discography.js"></script>
+    </div>
+      
+      
+</body>
+</html>
