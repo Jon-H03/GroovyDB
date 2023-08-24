@@ -122,3 +122,17 @@ textarea {
 .deleteCol {
     width: 1em;
 }
+
+button a {
+    font-size: medium;
+    text-decoration: none; 
+    color: inherit;         
+}
+
+
+button a:hover,
+button a:active,
+button a:focus {
+    text-decoration: none;
+    color: inherit;
+}
