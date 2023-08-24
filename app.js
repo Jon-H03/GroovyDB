@@ -1,13 +1,3 @@
-// Citations 
-// 1. Citation for the following code:
-// Date: 07/31/2023
-// Adapted from OSU nodejs-starter-app Github. Modified to run with our database
-// Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app 
-
-
-
-// App.js
-
 /*
     SETUP
 */
