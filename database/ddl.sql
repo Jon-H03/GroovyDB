@@ -1,9 +1,3 @@
-/*
-Group 15
-Stephanie Conner
-Jonathan Hirsch
-*/
-
 SET FOREIGN_KEY_CHECKS=0;
 SET AUTOCOMMIT = 0;
 
@@ -48,15 +42,6 @@ CREATE TABLE IF NOT EXISTS songs (
     ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Create Artists Table
-CREATE TABLE IF NOT EXISTS artists (
-    artistID int AUTO_INCREMENT UNIQUE NOT NULL,
-    artistName varchar(50) NOT NULL,
-    description text,
-    PRIMARY KEY (artistID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 -- Create Discographies Table
 CREATE TABLE IF NOT EXISTS discographies (
     artistID int,
@@ -98,17 +83,15 @@ INSERT INTO songs (songName, albumID, artistID, streamCount) VALUES
 ('No Opp Left Behind', 4, 4, 6),
 ('Champion', 5, 2, 15);
 
--- Insert data into artists_albums Table
+-- Insert data into discographies Table
 INSERT INTO discographies (artistID, albumID) VALUES
 (1, 1),
 (2, 1),
-(2, 6),
+(2, 5),
 (3, 3),
 (4, 2),
 (4, 4),
-(5, 6);
-
+(5, 5);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-
