@@ -69,6 +69,6 @@ SELECT albumName FROM albums;
 
 SELECT genreName FROM genres;
 
-SELECT discography FROM discographies;
+SELECT artistID, albumID FROM discographies;
 
 
